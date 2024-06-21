@@ -1,1 +1,36 @@
-foldr 
+project-root
+├── node_modules/
+├── public/
+│   ├── next.svg
+│   └── vercel.svg
+├── src/
+│   └── app/
+│       ├── api/
+│       │   └── users/
+│       │       └── login.ts
+│       ├── login/
+│       │   └── page.tsx
+│       ├── signup/
+│       │   └── page.tsx
+│       ├── favicon.ico
+│       ├── globals.css
+│       ├── layout.tsx
+│       └── page.tsx
+├── .eslintrc.json
+├── .env
+├── .gitignore
+├── next-env.d.ts
+├── next.config.js
+├── notes.txt
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── README.md
+├── tailwind.config.js
+└── tsconfig.json
+
+
+--api k andr sara backend likhata hai 
+
+--forget password 
+  --forget password k page se ek url trigger krwate hai app generate krti hai token or wo ek copy databse ko bhejti or ek user ko email pe fr jb user uspe click krta to fr app k pass aata uske bd app marta hai query database k pass agar token match krta to fr expiry check krta jb dono thk hai to fr user ko ek field present krdete hai change password ka fr password field ko update kr dete 

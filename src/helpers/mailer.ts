@@ -8,26 +8,39 @@ export const sendEmail = async({email, emailType, userId}:any) => {
         // create a hased token
         const hashedToken = await bcryptjs.hash(userId.toString(), 10)
 
-        if (emailType === "VERIFY") {
-            await User.findByIdAndUpdate(userId, 
-                {verifyToken: hashedToken, verifyTokenExpiry: Date.now() + 3600000})
-        } else if (emailType === "RESET"){
-            await User.findByIdAndUpdate(userId, 
-                {forgotPasswordToken: hashedToken, forgotPasswordTokenExpiry: Date.now() + 3600000})
-        }
 
-        var transport = nodemailer.createTransport({
-          host: "sandbox.smtp.mailtrap.io",
-          port: 2525,
-          auth: {
-            user: "69e009fca3f2a2",
-            pass: "7a27c7ff45667d"
-          }
-        });
+        if(emailType === 'VERIFY'){
+            console.log("Verify section")
+            const updatedUser = await User.findByIdAndUpdate(userId,{
+                $set:{
+                    verifyToken: hashedToken,
+                    verifyTokenExpiry: new Date(Date.now() + 3600000) // 1hour from now 
+                }
+            })
+            console.log(updatedUser)
+        }
+        else if(emailType === "RESET"){
+            const updatedUser = await User.findByIdAndUpdate(userId,{
+                $set:{
+                    verifyToken: hashedToken,
+                    verifyTokenExpiry: new Date(Date.now() + 3600000) // 1hour from now 
+                }
+            })
+        }
+        
+
+          var transport = nodemailer.createTransport({
+            host: "sandbox.smtp.mailtrap.io",
+            port: 2525,
+            auth: {
+              user: "69e009fca3f2a2",
+              pass: "7a27c7ff45667d"
+            }
+          });
 
 
         const mailOptions = {
-            from: 'hitesh@gmail.com',
+            from: 'shaaz@gmail.com',
             to: email,
             subject: emailType === "VERIFY" ? "Verify your email" : "Reset your password",
             html: `<p>Click <a href="${process.env.DOMAIN}/verifyemail?token=${hashedToken}">here</a> to ${emailType === "VERIFY" ? "verify your email" : "reset your password"}

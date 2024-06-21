@@ -15,9 +15,11 @@ export const sendEmail = async({email, emailType, userId}:any) => {
                 $set:{
                     verifyToken: hashedToken,
                     verifyTokenExpiry: new Date(Date.now() + 3600000) // 1hour from now 
+                              
                 }
             })
-            console.log(updatedUser)
+            
+            console.log("updated user = " ,updatedUser)
         }
         else if(emailType === "RESET"){
             const updatedUser = await User.findByIdAndUpdate(userId,{

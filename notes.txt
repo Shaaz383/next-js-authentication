@@ -4,18 +4,30 @@ project-root
 │   ├── next.svg
 │   └── vercel.svg
 ├── src/
-│   └── app/
-│       ├── api/
-│       │   └── users/
-│       │       └── login.ts
-│       ├── login/
-│       │   └── page.tsx
-│       ├── signup/
-│       │   └── page.tsx
-│       ├── favicon.ico
-│       ├── globals.css
-│       ├── layout.tsx
-│       └── page.tsx
+│   ├── app/
+│   │   ├── api/
+│   │   │   └── users/
+│   │   │       ├── login/
+│   │   │       │   └── route.ts
+│   │   │       └── signup/
+│   │   │       |    └── route.ts
+│   │   │       │   
+│   │   │       └── verifyemail/
+│   │   │           └── route.ts
+│   │   ├── login/
+│   │   │   └── page.tsx
+│   │   ├── signup/
+│   │   │   └── page.tsx
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── dbConfig/
+│   │   └── dbConfig.ts
+│   ├── helpers/
+│   │   └── mailer.ts
+│   └── models/
+│       └── UserModel.js
 ├── .eslintrc.json
 ├── .env
 ├── .gitignore
@@ -28,7 +40,6 @@ project-root
 ├── README.md
 ├── tailwind.config.js
 └── tsconfig.json
-
 
 --api k andr sara backend likhata hai 
 

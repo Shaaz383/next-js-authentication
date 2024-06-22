@@ -9,14 +9,23 @@ project-root
 │   │   │   └── users/
 │   │   │       ├── login/
 │   │   │       │   └── route.ts
-│   │   │       └── signup/
-│   │   │       |    └── route.ts
-│   │   │       │   
+│   │   │       ├── logout/
+│   │   │       │   └── route.ts
+│   │   │       ├── me/
+│   │   │       │   └── route.ts
+│   │   │       ├── signup/
+│   │   │       │   └── route.ts
 │   │   │       └── verifyemail/
 │   │   │           └── route.ts
 │   │   ├── login/
 │   │   │   └── page.tsx
+│   │   ├── profile/
+│   │   │   ├── [id]/
+│   │   │   │   └── page.tsx
+│   │   │   └── page.tsx
 │   │   ├── signup/
+│   │   │   └── page.tsx
+│   │   ├── verifyemail/
 │   │   │   └── page.tsx
 │   │   ├── favicon.ico
 │   │   ├── globals.css
@@ -25,10 +34,11 @@ project-root
 │   ├── dbConfig/
 │   │   └── dbConfig.ts
 │   ├── helpers/
-│   │   └── mailer.ts
+│   │   ├── mailer.ts
 │   │   └── getDataFromToken.ts
-│   └── models/
-│       └── UserModel.js
+│   ├── models/
+│   │   └── UserModel.js
+│   └── middleware.ts
 ├── .eslintrc.json
 ├── .env
 ├── .gitignore
@@ -41,18 +51,3 @@ project-root
 ├── README.md
 ├── tailwind.config.js
 └── tsconfig.json
-
---api k andr sara backend likhata hai 
-
---forget password 
-  --forget password k page se ek url trigger krwate hai app generate krti hai token or wo ek copy databse ko bhejti or ek user ko email pe fr jb user uspe click krta to fr app k pass aata uske bd app marta hai query database k pass agar token match krta to fr expiry check krta jb dono thk hai to fr user ko ek field present krdete hai change password ka fr password field ko update kr dete 
-
-
-    var transport = nodemailer.createTransport({
-          host: "sandbox.smtp.mailtrap.io",
-          port: 2525,
-          auth: {
-            user: "69e009fca3f2a2",
-            pass: "7a27c7ff45667d"
-          }
-        });
